@@ -1,0 +1,117 @@
+// 分類配置，包含色彩、圖標、描述等
+export const categoryConfig = {
+  'history': { 
+    name: '歷史',
+    name_en: 'History',
+    description: '從史前時代到現代，台灣歷史的完整脈絡',
+    icon: '📜',
+    color: '#92400e', // 暖棕
+    colorLight: '#f59e0b20',
+    gradient: 'linear-gradient(135deg, #92400e, #d97706)',
+  },
+  'geography': { 
+    name: '地理',
+    name_en: 'Geography',
+    description: '台灣的自然環境、地形特色與區域發展',
+    icon: '🗺️',
+    color: '#065f46', // 森綠
+    colorLight: '#059f4620',
+    gradient: 'linear-gradient(135deg, #065f46, #10b981)',
+  },
+  'culture': { 
+    name: '文化',
+    name_en: 'Culture',
+    description: '多元族群文化的融合與在地特色',
+    icon: '🎭',
+    color: '#7c3aed', // 紫
+    colorLight: '#7c3aed20',
+    gradient: 'linear-gradient(135deg, #7c3aed, #a855f7)',
+  },
+  'food': { 
+    name: '美食',
+    name_en: 'Food',
+    description: '從夜市小吃到精緻料理的美食文化',
+    icon: '🍜',
+    color: '#ea580c', // 橘紅
+    colorLight: '#ea580c20',
+    gradient: 'linear-gradient(135deg, #ea580c, #f97316)',
+  },
+  'art': { 
+    name: '藝術',
+    name_en: 'Art',
+    description: '傳統工藝到當代藝術的創作能量',
+    icon: '🎨',
+    color: '#be185d', // 桃紅
+    colorLight: '#be185d20',
+    gradient: 'linear-gradient(135deg, #be185d, #ec4899)',
+  },
+  'music': { 
+    name: '音樂',
+    name_en: 'Music',
+    description: '從原住民音樂到流行音樂的聲音風景',
+    icon: '🎵',
+    color: '#0891b2', // 青
+    colorLight: '#0891b220',
+    gradient: 'linear-gradient(135deg, #0891b2, #06b6d4)',
+  },
+  'technology': { 
+    name: '科技',
+    name_en: 'Technology',
+    description: '科技島的創新發展與數位轉型',
+    icon: '💻',
+    color: '#1d4ed8', // 藍
+    colorLight: '#1d4ed820',
+    gradient: 'linear-gradient(135deg, #1d4ed8, #3b82f6)',
+  },
+  'nature': { 
+    name: '自然',
+    name_en: 'Nature',
+    description: '豐富的生態環境與環保議題',
+    icon: '🌿',
+    color: '#15803d', // 翠綠
+    colorLight: '#15803d20',
+    gradient: 'linear-gradient(135deg, #15803d, #22c55e)',
+  },
+  'people': { 
+    name: '人物',
+    name_en: 'People',
+    description: '影響台灣發展的重要人物與故事',
+    icon: '👥',
+    color: '#b45309', // 琥珀
+    colorLight: '#b4530920',
+    gradient: 'linear-gradient(135deg, #b45309, #f59e0b)',
+  },
+  'society': { 
+    name: '社會',
+    name_en: 'Society',
+    description: '社會變遷與當代議題的深度探討',
+    icon: '🏛️',
+    color: '#475569', // 石墨
+    colorLight: '#47556920',
+    gradient: 'linear-gradient(135deg, #475569, #64748b)',
+  },
+  'economy': { 
+    name: '經濟',
+    name_en: 'Economy',
+    description: '經濟奇蹟的成因與轉型挑戰',
+    icon: '📊',
+    color: '#c2410c', // 深橘
+    colorLight: '#c2410c20',
+    gradient: 'linear-gradient(135deg, #c2410c, #ea580c)',
+  },
+  'lifestyle': { 
+    name: '生活',
+    name_en: 'Lifestyle',
+    description: '台灣人的生活方式與價值觀',
+    icon: '🏠',
+    color: '#4d7c0f', // 草綠
+    colorLight: '#4d7c0f20',
+    gradient: 'linear-gradient(135deg, #4d7c0f, #65a30d)',
+  }
+};
+
+export type CategoryKey = keyof typeof categoryConfig;
+
+export function getCategoryConfig(category: string): typeof categoryConfig[CategoryKey] | null {
+  return categoryConfig[category as CategoryKey] || null;
+}
