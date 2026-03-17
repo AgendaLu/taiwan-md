@@ -91,11 +91,27 @@ export async function getStaticPaths() {
     // Only show Chinese articles on main category pages
     const zhArticles = articles.filter(a => a.lang === 'zh-TW');
     
+    // Read Hub content (the _*Hub.md file)
+    let hubContent = '';
+    try {
+      const hubFolder = resolve(process.cwd(), 'knowledge', folderName);
+      const hubFiles = await readdir(hubFolder);
+      const hubFile = hubFiles.find(f => f.startsWith('_') && f.includes('Hub'));
+      if (hubFile) {
+        const hubPath = join(hubFolder, hubFile);
+        const hubRaw = await readFile(hubPath, 'utf-8');
+        const { content } = matter(hubRaw);
+        // Remove the first H1 line (we already have the hero title)
+        hubContent = content.replace(/^#\s+.+\n/, '').trim();
+      }
+    } catch {}
+
     paths.push({
       params: { category },
       props: { 
         categoryInfo: categoryConfig[category as CategoryKey],
         category,
+        hubContent,
         articles: zhArticles.sort((a, b) => {
           if (a.featured && !b.featured) return -1;
           if (!a.featured && b.featured) return 1;
@@ -111,7 +127,9 @@ export async function getStaticPaths() {
 import Layout from '../../layouts/Layout.astro';
 import { getCategoryConfig } from '../../utils/categoryConfig';
 
-const { categoryInfo, category, articles } = Astro.props;
+import { marked } from 'marked';
+const { categoryInfo, category, hubContent, articles } = Astro.props;
+const hubHtml = hubContent ? marked.parse(hubContent) : '';
 
 // 其他分類（跨分類導航用）
 const otherCategories = Object.keys(categoryConfig)
@@ -149,7 +167,15 @@ const otherCategories = Object.keys(categoryConfig)
         <span class="current">{categoryInfo.name}</span>
       </nav>
 
+      <!-- Hub Content (curated overview) -->
+      {hubHtml && (
+        <section class="hub-content">
+          <div class="hub-prose" set:html={hubHtml} />
+        </section>
+      )}
+
       <!-- Articles Section -->
+      <h2 class="articles-heading">📖 延伸閱讀</h2>
       {articles.length > 0 ? (
         <section class="articles-section">
           <div class="articles-grid">
@@ -338,6 +364,44 @@ const otherCategories = Object.keys(categoryConfig)
   }
 
   /* Articles Grid */
+  .hub-content {
+    margin: 2rem 0 3rem;
+    padding: 2.5rem;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .hub-prose {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #334155;
+  }
+  .hub-prose > blockquote:first-child {
+    font-size: 1.1rem;
+    font-style: italic;
+    border-left: 4px solid #3b82f6;
+    padding: 0.75rem 1.25rem;
+    margin: 0 0 1.5rem 0;
+    background: #f0f7ff;
+    border-radius: 0 8px 8px 0;
+    color: #1e40af;
+  }
+  .hub-prose h2 { font-size: 1.4rem; margin: 2rem 0 0.75rem; color: #1e293b; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.5rem; }
+  .hub-prose h3 { font-size: 1.15rem; margin: 1.5rem 0 0.5rem; color: #334155; }
+  .hub-prose p { margin: 0.75rem 0; }
+  .hub-prose ul { padding-left: 1.5rem; margin: 0.5rem 0; }
+  .hub-prose li { margin: 0.3rem 0; }
+  .hub-prose a { color: #3b82f6; }
+  .hub-prose img { max-width: 100%; border-radius: 12px; margin: 1rem 0; }
+  .hub-prose em { font-size: 0.85rem; color: #64748b; }
+
+  .articles-heading {
+    font-size: 1.4rem;
+    margin: 0 0 1.5rem 0;
+    color: #1e293b;
+  }
+
   .articles-section {
     margin-bottom: 4rem;
   }
