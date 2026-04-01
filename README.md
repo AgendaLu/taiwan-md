@@ -145,13 +145,28 @@ We maintain a **[TERMINOLOGY.md](./docs/editorial/TERMINOLOGY.md)** to ensure co
 
 ### 📐 Editorial Standards
 
-We maintain an **[EDITORIAL.md](./docs/editorial/EDITORIAL.md)** — our writing methodology and quality standard. It covers:
+We maintain a **five-document editorial system** that governs every article from research to publication:
 
-- **Research workflow**: define questions → cross-reference 2+ sources → verify data
-- **Article structure**: 30-sec overview → narrative-driven body → challenges → references
-- **Tone**: specific over vague, stories over bullet lists, honesty over cheerleading
-- **AI quality control**: `tools/quality-scan.sh` scans all articles for hollow AI patterns (empty modifiers, missing sources, bullet-list padding)
-- **Checklist**: 10-point quality gate before every publish
+- **[EDITORIAL.md](./docs/editorial/EDITORIAL.md)** — Writing methodology & quality standard (v4). Covers narrative structure, tone, citation format, anti-AI-slop rules
+- **[REWRITE-PIPELINE.md](./docs/editorial/REWRITE-PIPELINE.md)** — Three-stage quality pipeline: Research → Write → Verify, with quality gates at each stage
+- **[RESEARCH-TEMPLATE.md](./docs/editorial/RESEARCH-TEMPLATE.md)** — Structured research template with fact-source pairing for footnotes
+- **[QUALITY-CHECKLIST.md](./docs/editorial/QUALITY-CHECKLIST.md)** — Post-writing verification: 五指檢測 → structure → citation density → auto-scan → commit
+- **[TERMINOLOGY.md](./docs/editorial/TERMINOLOGY.md)** — Language & naming conventions for Taiwan-specific usage
+
+### 📎 Citation System (Footnote-First)
+
+Every claim needs a source. We use **Markdown footnotes** (`[^1]`) to link facts directly to their origins — no more dumping a list of URLs at the bottom and hoping readers trust you.
+
+```markdown
+台灣早餐店超過 2 萬家[^1]。
+
+[^1]: [經濟部商業司](https://gcis.nat.gov.tw/)（2026 年）
+```
+
+- **Density standard**: ≥ 1 footnote per 300 words
+- **Write inline, not after**: footnotes are inserted during writing, not retrofitted (painful lesson learned)
+- **Three citation contexts**: data → footnote, quotes → footnote, callout sources → inline link
+- Design doc: [`docs/design/CITATION-SYSTEM.md`](./docs/design/CITATION-SYSTEM.md)
 
 ---
 
@@ -195,10 +210,11 @@ Every `.md` file in the root directory is an organ of this organism. Together, t
 
 | File                                                              | Role                                                            | When to read                                                                                                                                                   |
 | ----------------------------------------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[EDITORIAL.md](./docs/editorial/EDITORIAL.md)**                                | 🫀 **Heart** — Writing methodology & quality standard (v4)      | Before writing or reviewing any article. Defines what a "good article" looks like: 切入人物、挖引語制度、因果鏈、五種開場/結尾模式、塑膠偵測                   |
+| **[EDITORIAL.md](./docs/editorial/EDITORIAL.md)**                 | 🫀 **Heart** — Writing methodology & quality standard (v4)      | Before writing or reviewing any article. Defines what a "good article" looks like: 切入人物、挖引語制度、因果鏈、五種開場/結尾模式、塑膠偵測                   |
 | **[REWRITE-PIPELINE.md](./docs/editorial/REWRITE-PIPELINE.md)**   | 🔄 **Circulatory system** — Three-stage quality pipeline (v2.1) | Before rewriting existing articles. Orchestrates four files: Research → Write → Verify, with quality gates at each stage                                       |
 | **[RESEARCH-TEMPLATE.md](./docs/editorial/RESEARCH-TEMPLATE.md)** | 🔬 **Sensory system** — Pre-writing research template           | During Stage 1 of the rewrite pipeline. Structured template for gathering facts, finding a 切入人物, collecting 真人引語, and preparing endings before writing |
-| **[QUALITY-CHECKLIST.md](./docs/editorial/QUALITY-CHECKLIST.md)** | 🛡️ **Immune checkpoint** — Post-writing verification checklist  | During Stage 3 of the rewrite pipeline. Five-step verification: 五指檢測 → 結構驗證 → 塑膠掃描 → 自動驗證 → commit                                             |
+| **[QUALITY-CHECKLIST.md](./docs/editorial/QUALITY-CHECKLIST.md)** | 🛡️ **Immune checkpoint** — Post-writing verification checklist  | During Stage 3 of the rewrite pipeline. Five-step verification: 五指檢測 → 結構驗證 → 來源引用密度 → 塑膠掃描 → commit                                         |
+| **[CITATION-SYSTEM.md](./docs/design/CITATION-SYSTEM.md)**        | 📎 **Nervous system** — Footnote-first citation architecture    | Design doc for the citation system. Every claim links to its source via `[^n]` footnotes. Density: ≥ 1 per 300 words                                           |
 | **[TERMINOLOGY.md](./docs/editorial/TERMINOLOGY.md)**             | 🗣️ **Voice** — Language & naming conventions                    | Before writing. Covers national identity terms, Taiwanese language naming, geographic conventions, respectful language for indigenous peoples                  |
 | **[CONTRIBUTING.md](./CONTRIBUTING.md)**                          | 🚪 **Front door** — How to contribute                           | First time contributing. Four paths from zero-code to full PR, plus article templates and submission guidelines                                                |
 | **[CONTRIBUTE_PROMPT.md](./docs/prompts/CONTRIBUTE_PROMPT.md)**   | 🤖 **AI onboarding** — Prompt for AI-assisted writing           | When using ChatGPT/Claude/Gemini to write an article. Paste this to your AI and it guides the process                                                          |
@@ -220,7 +236,7 @@ The organism has an automated immune system that detects and fights "hollow AI c
 | `tools/quality-scan.sh`                                     | Scans all articles for **14 quality dimensions**: bullet padding, missing dates, no sources, empty modifiers, repetitive structure, thin paragraphs, no human review, plastic phrases, dash abuse, textbook openings, cliché endings, template H2s, **list-dump detection**, **quality decay** (虎頭蛇尾) |
 | `tools/quality-scan.sh --diff`                              | Compares against baseline to show which articles improved or degraded since last scan                                                                                                                                                                                                                     |
 | `tools/quality-scan.sh --sort`                              | Outputs worst-scoring articles first for triage                                                                                                                                                                                                                                                           |
-| [EDITORIAL.md §塑膠偵測](./docs/editorial/EDITORIAL.md)                    | Human-readable guide to detecting "plastic" writing — five species of hollow sentences that AI loves to generate                                                                                                                                                                                          |
+| [EDITORIAL.md §塑膠偵測](./docs/editorial/EDITORIAL.md)     | Human-readable guide to detecting "plastic" writing — five species of hollow sentences that AI loves to generate                                                                                                                                                                                          |
 | [REWRITE-PIPELINE.md](./docs/editorial/REWRITE-PIPELINE.md) | Four-file orchestration pipeline that prevents quality collapse: Pipeline (flow) → RESEARCH-TEMPLATE (research) → EDITORIAL (writing) → QUALITY-CHECKLIST (verification)                                                                                                                                  |
 
 ### 🌱 How the Organism Evolves
@@ -231,13 +247,13 @@ New knowledge discovered
   docs/editorial/REWRITE-PIPELINE.md ← 指揮官 (orchestrates everything)
        │
        ├─ Stage 1: docs/editorial/RESEARCH-TEMPLATE.md (structured research)
-       │     → 切入人物、反直覺核心句、真人引語、結尾素材
+       │     → 切入人物、反直覺核心句、真人引語、結尾素材、事實-來源配對表
        │
-       ├─ Stage 2: EDITORIAL.md (quality standard)
-       │     → 五種開場、因果鏈、塑膠偵測、結尾模式庫
+       ├─ Stage 2: EDITORIAL.md (quality standard) + CITATION-SYSTEM.md
+       │     → 五種開場、因果鏈、塑膠偵測、結尾模式庫、邊寫邊插 [^n] footnote
        │
        └─ Stage 3: docs/editorial/QUALITY-CHECKLIST.md (verification)
-             → 五指檢測 → 結構驗證 → 塑膠掃描 → quality-scan.sh (14 維度)
+             → 五指檢測 → 結構驗證 → 來源引用密度 → 塑膠掃描 → quality-scan.sh
                     ↓
               docs/community/REVIEWERS.md (human review)
                     ↓
@@ -249,6 +265,20 @@ New knowledge discovered
 Every article that passes through this four-file system makes the organism smarter. Every quality failure that gets caught teaches the immune system a new pattern. The `.md` files evolve independently — update EDITORIAL.md's writing standards without touching the pipeline flow, or add new verification steps to docs/editorial/QUALITY-CHECKLIST.md without rewriting the research template.
 
 > _"Taiwan.md is not a project that will be 'finished.' It's a living thing that grows, adapts, and occasionally gets sick — but it has an immune system, and it heals."_
+
+### 🔧 Operational Pipelines
+
+Automated and manual pipelines that keep the organism breathing:
+
+| Pipeline                                                           | Trigger            | Function                                                                                         |
+| ------------------------------------------------------------------ | ------------------ | ------------------------------------------------------------------------------------------------ |
+| [MAINTAINER-PIPELINE](./docs/pipelines/MAINTAINER-PIPELINE.md)     | Daily / onboarding | Maintainer handbook — curatorial philosophy, PR/Issue review, quality standards                  |
+| [EVOLVE-PIPELINE](./docs/pipelines/EVOLVE-PIPELINE.md)             | Manual             | Data-driven content evolution (GA4 + Search Console → rewrite)                                   |
+| [BRANCH-PIPELINE](./docs/pipelines/BRANCH-PIPELINE.md)             | `分析「article」`  | Knowledge branch analyzer — topic decomposition → cross-reference → gap analysis → research plan |
+| [STATS-PIPELINE](./docs/pipelines/STATS-PIPELINE.md)               | Cron 00:00         | Daily stats update                                                                               |
+| [CONTRIBUTORS-PIPELINE](./docs/pipelines/CONTRIBUTORS-PIPELINE.md) | Cron 03:30         | Contributors list update                                                                         |
+| [DAILY-REPORT-PIPELINE](./docs/pipelines/DAILY-REPORT-PIPELINE.md) | Cron 09:00         | Daily health report                                                                              |
+| [DASHBOARD-PIPELINE](./docs/pipelines/DASHBOARD-PIPELINE.md)       | Prebuild + manual  | Dashboard data pipeline                                                                          |
 
 ---
 

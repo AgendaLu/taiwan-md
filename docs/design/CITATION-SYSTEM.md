@@ -163,16 +163,18 @@ Phase 1 完成後，更新 EDITORIAL.md：
 
 ---
 
-## Phase 0 技術驗證結果
+## Phase 0 + Phase 1 技術驗證結果
 
 - [x] **Astro 6.0.5** + **remark-gfm 4.0.1**（Astro 內建，不用額外安裝）
 - [x] remark-gfm v4 **原生支援 footnote 語法** `[^1]`
 - [x] `astro.config.mjs` 已有 `remarkPlugins` 陣列（目前：`remarkWikilinks`）
 - [x] **不需要安裝任何新套件** — footnote 已經可以用了
-- [ ] 設計 footnote section CSS（字體、分隔線、hover 效果）
-- [ ] 寫一篇測試文章驗證渲染效果
-- [ ] 手機端 UX 測試
+- [x] **自訂 footnote 渲染器**（`[slug].astro` 314-351 行，手寫 processFootnotes 函式）
+- [x] **CSS 完整設計**（`[slug].astro` 1117-1210 行，含分隔線、hover、手機端 44px tap target）
+- [x] **手機端 UX**：min-width/min-height 44px + padding 確保可點擊
+- [x] **實際渲染**：`台灣感性.md` 已使用 footnote（`[^amá]`），可在線上驗證
 - [ ] quality-scan 適配（`[^1]` 不應被計入 hollow/thin 指標）
+- [ ] 新文章全面採用（目前僅 1/940 篇使用 footnote）
 
 ### 技術細節
 
@@ -221,6 +223,22 @@ sidebar 顯示 "See also" 來源列表，正文不中斷。
 
 ---
 
-_版本：v0.1 | 2026-03-29_
-_狀態：Phase 0 設計中_
+## 與編輯體系的整合（Phase 2，2026-03-31）
+
+Citation system 已融入四份編輯文件：
+
+| 文件                               | 加了什麼                                                      |
+| ---------------------------------- | ------------------------------------------------------------- |
+| **EDITORIAL.md** §來源引用         | Footnote 格式規範、三種引用場景、密度標準（每 300 字 ≥ 1 個） |
+| **REWRITE-PIPELINE.md** Stage 1    | 研究時記錄「事實→來源 URL」配對表                             |
+| **REWRITE-PIPELINE.md** Stage 2    | 寫作時邊寫邊插 `[^n]`，文末寫 footnote 定義                   |
+| **QUALITY-CHECKLIST.md** §來源引用 | 驗證 footnote 數量、定義完整性、密度                          |
+| **RESEARCH-TEMPLATE.md**           | 事實素材庫加 Footnote 欄位，直接對應 Stage 2                  |
+
+**向下相容：** 舊文章的 `## 參考資料` 仍可渲染，但新文章和 rewrite 一律用 footnote。
+
+---
+
+_版本：v0.3 | 2026-03-31_
+_狀態：Phase 2 完成 — 已融入編輯體系，全面採用中_
 _作者：Muse 🫧 + 哲宇_

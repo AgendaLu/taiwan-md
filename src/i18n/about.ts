@@ -23,11 +23,11 @@ export const aboutUI = {
       'Surprisingly, no one had claimed the taiwan.md domain yet. Perhaps the universe was telling us it was time to make this happen.',
 
     // Stats
-    'about.stats.pages.number': '959+',
+    'about.stats.pages.number': '970+',
     'about.stats.pages.label': 'Pages',
     'about.stats.countries.number': '106',
     'about.stats.countries.label': 'Countries',
-    'about.stats.stars.number': '890+',
+    'about.stats.stars.number': '900+',
     'about.stats.stars.label': 'GitHub Stars',
     'about.stats.contributors.number': '30+',
     'about.stats.contributors.label': 'Contributors',
@@ -127,7 +127,13 @@ export const aboutUI = {
     'about.timeline.2026-03-27.title':
       '🏛️ Day 10 — Two Ways of Remembering an Island, Meeting',
     'about.timeline.2026-03-27.desc.html':
-      'Ten days after launch, Taiwan.md walked into its first museum. The <strong><a href="https://www.nmth.gov.tw/" target="_blank">National Museum of Taiwan History</a></strong> invited Che-Yu to Tainan to share the story behind the site\'s birth, and to experience the museum\'s nationally curated exhibitions on Taiwanese history firsthand. A community-driven knowledge base and a national museum, each looking at the same island from different angles — when those perspectives met, the conversation naturally turned to what comes next. The museum introduced the open datasets they have spent years building: <strong>over 550,000 cleaned, publicly accessible records</strong>. As a first step, both sides agreed to explore gradually integrating and enriching the knowledge base with NMTH\'s Open API, open datasets, and digital learning resources (including the <a href="https://tcmb.culture.tw/zh-tw/OpenApi" target="_blank">National Repository of Cultural Heritage</a>, <a href="https://taiwanoverseas.nmth.gov.tw/" target="_blank">Overseas Historical Sources on Taiwan</a>, <a href="https://the.nmth.gov.tw/" target="_blank">Connecting Taiwan History</a>, <a href="https://ilhaformosa.nmth.gov.tw/home/zh-tw" target="_blank">Taiwan History for Beginners</a>, and more) — deepening Taiwan.md\'s content curation with the kind of research depth only a dedicated museum can provide.',
+      'Ten days after launch, Taiwan.md walked into its first museum. The <strong><a href="https://www.nmth.gov.tw/" target="_blank">National Museum of Taiwan History</a></strong> invited Che-Yu to Tainan to share the story behind the site\'s birth, and to experience the museum\'s nationally curated exhibitions on Taiwanese history firsthand. A community-driven knowledge base and a national museum, each looking at the same island from different angles — when those perspectives met, the conversation naturally turned to what comes next. The museum introduced the open datasets they have spent years building: <strong>over 550,000 cleaned, publicly accessible records</strong>. As a first step, both sides agreed to explore gradually integrating and enriching the knowledge base with NMTH\'s Open API, open datasets, and digital learning resources (including the <a href="https://tcmb.culture.tw/zh-tw/OpenApi" target="_blank">National Repository of Cultural Heritage</a>, <a href="https://taiwanoverseas.nmth.gov.tw/" target="_blank">Overseas Historical Sources on Taiwan</a>, <a href="https://the.nmth.gov.tw/" target="_blank">Connecting Taiwan History</a>, <a href="https://ilhaformosa.nmth.gov.tw/home/zh-tw" target="_blank">Taiwan History for Beginners</a>, and more) — deepening Taiwan.md\'s content curation with the kind of research depth only a dedicated museum can provide.<br/><br/>📺 <a href="https://www.youtube.com/watch?v=dsoNFHhwDW0" target="_blank">Watch the full NMTH talk</a>',
+
+    'about.timeline.2026-03-31.date': '2026 / 03 / 31',
+    'about.timeline.2026-03-31.title':
+      '🧬 Day Fourteen — "It Grew a Nervous System" · 900 Stars · 985 Pages',
+    'about.timeline.2026-03-31.desc.html':
+      'GitHub reached <strong>900 Stars</strong>, <strong>48 contributors</strong>, <strong>985 pages</strong>. Taiwan.md grew its own nervous system — 📎 <strong>Citation System</strong> gives every claim a traceable footnote, 📈 <strong>Evolve Pipeline</strong> uses Search Console data to auto-evolve articles, 🔤 <a href="/terminology/converter"><strong>Terminology Converter</strong></a> now holds 1,825 terms, 🚇 <a href="/soundscape"><strong>Soundscape</strong></a> expanded to 21 recordings, 📊 <a href="/dashboard"><strong>Digital Organism Dashboard</strong></a> went live. 16+ articles deeply rewritten, editorial system upgraded to 10 documents. Full details in <a href="https://github.com/frank890417/taiwan-md/releases/tag/v0.9.0" target="_blank">v0.9.0 Release Notes</a>.',
 
     'about.timeline.ongoing.date': 'Ongoing',
     'about.timeline.ongoing.title': 'From Personal SSOT to National SSOT',
@@ -405,11 +411,11 @@ export const aboutUI = {
       '令人驚訝的是，taiwan.md 這個域名居然沒有人搶先買下。或許是宇宙在告訴我們，這件事該做了。',
 
     // Stats
-    'about.stats.pages.number': '959+',
+    'about.stats.pages.number': '970+',
     'about.stats.pages.label': '頁面',
     'about.stats.countries.number': '106',
     'about.stats.countries.label': '國家',
-    'about.stats.stars.number': '890+',
+    'about.stats.stars.number': '900+',
     'about.stats.stars.label': 'GitHub Stars',
     'about.stats.contributors.number': '30+',
     'about.stats.contributors.label': '貢獻者',
@@ -502,7 +508,13 @@ export const aboutUI = {
     'about.timeline.2026-03-27.date': '2026 / 03 / 27',
     'about.timeline.2026-03-27.title': '🏛️ 第十天 — 島嶼的兩種記憶方式相遇',
     'about.timeline.2026-03-27.desc.html':
-      '上線第十天，Taiwan.md 走進了它的第一座博物館。<strong><a href="https://www.nmth.gov.tw/" target="_blank">國立臺灣歷史博物館</a></strong>邀請哲宇到台南，分享整個網站誕生的經驗，也讓他親身走過館內國家級的專業台灣史展覽。一個社群驅動的知識庫和一座國家級博物館，各自從不同角度看同一座島嶼——當這些視角相遇，對話自然走向了下一步。館方介紹了他們多年來致力建構的開放資料集：<strong>超過 55 萬筆已清理、可公開取用的歷史資料</strong>。雙方決定探索第一步——將臺史博的 Open API、開放資料集，以及豐富的數位學習與研究資源（<a href="https://tcmb.culture.tw/zh-tw/OpenApi" target="_blank">國家文化記憶庫</a>、<a href="https://taiwanoverseas.nmth.gov.tw/" target="_blank">海外史料看臺灣</a>、<a href="https://the.nmth.gov.tw/" target="_blank">點集臺灣史</a>、<a href="https://ilhaformosa.nmth.gov.tw/home/zh-tw" target="_blank">臺灣史新手村</a>等）逐步導入與豐富知識庫，以博物館級的研究深度，為 Taiwan.md 的內容策展注入更紮實的底蘊。',
+      '上線第十天，Taiwan.md 走進了它的第一座博物館。<strong><a href="https://www.nmth.gov.tw/" target="_blank">國立臺灣歷史博物館</a></strong>邀請哲宇到台南，分享整個網站誕生的經驗，也讓他親身走過館內國家級的專業台灣史展覽。一個社群驅動的知識庫和一座國家級博物館，各自從不同角度看同一座島嶼——當這些視角相遇，對話自然走向了下一步。館方介紹了他們多年來致力建構的開放資料集：<strong>超過 55 萬筆已清理、可公開取用的歷史資料</strong>。雙方決定探索第一步——將臺史博的 Open API、開放資料集，以及豐富的數位學習與研究資源（<a href="https://tcmb.culture.tw/zh-tw/OpenApi" target="_blank">國家文化記憶庫</a>、<a href="https://taiwanoverseas.nmth.gov.tw/" target="_blank">海外史料看臺灣</a>、<a href="https://the.nmth.gov.tw/" target="_blank">點集臺灣史</a>、<a href="https://ilhaformosa.nmth.gov.tw/home/zh-tw" target="_blank">臺灣史新手村</a>等）逐步導入與豐富知識庫，以博物館級的研究深度，為 Taiwan.md 的內容策展注入更紮實的底蘊。<br/><br/>📺 <a href="https://www.youtube.com/watch?v=dsoNFHhwDW0" target="_blank">觀看臺史博演講全程影片</a>',
+
+    'about.timeline.2026-03-31.date': '2026 / 03 / 31',
+    'about.timeline.2026-03-31.title':
+      '🧬 第十四天 —「它長出了神經系統」・ 900 Stars ・ 985 頁面',
+    'about.timeline.2026-03-31.desc.html':
+      'GitHub 達到 <strong>900 Stars</strong>，<strong>48 位貢獻者</strong>，<strong>985 頁面</strong>。Taiwan.md 長出了自己的神經系統——📎 <strong>Citation System</strong> 讓每個主張都有腳註追溯來源，📈 <strong>Evolve Pipeline</strong> 用 Search Console 數據自動進化文章，🔤 <a href="/terminology/converter"><strong>用語轉換器</strong></a>累積 1,825 詞條，🚇 <a href="/soundscape"><strong>聲景</strong></a>擴充至 21 筆錄音，📊 <a href="/dashboard"><strong>數位生命體監測頁面</strong></a>上線。16+ 篇文章深度改寫，編輯系統升級至 10 份文件。完整細節見 <a href="https://github.com/frank890417/taiwan-md/releases/tag/v0.9.0" target="_blank">v0.9.0 Release Notes</a>。',
 
     'about.timeline.ongoing.date': '持續進行中',
     'about.timeline.ongoing.title': '從個人 SSOT 到國家 SSOT',
